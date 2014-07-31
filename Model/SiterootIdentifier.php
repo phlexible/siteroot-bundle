@@ -6,7 +6,7 @@
  * @license   proprietary
  */
 
-namespace Phlexible\Bundle\SiterootBundle\Siteroot;
+namespace Phlexible\Bundle\SiterootBundle\Model;
 
 use Phlexible\Component\Identifier\Identifier;
 
