@@ -9,11 +9,11 @@
 namespace Phlexible\Bundle\SiterootBundle\Exception;
 
 /**
- * Runtime exception
+ * Exception interface for siteroot bundle
  *
  * @author Stephan Wentz <sw@brainbits.net>
  */
-class RuntimeException extends \RuntimeException implements ExceptionInterface
+interface ExceptionInterface
 {
 
 }
