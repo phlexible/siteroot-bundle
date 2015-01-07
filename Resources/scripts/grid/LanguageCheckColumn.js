@@ -1,6 +1,6 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.grid.LanguageCheckColumn');
 
-Phlexible.siteroots.LanguageCheckColumn = function (config) {
+Phlexible.siteroots.grid.LanguageCheckColumn = function (config) {
     Ext.apply(this, config);
     if (!this.id) {
         this.id = Ext.id();
@@ -8,7 +8,7 @@ Phlexible.siteroots.LanguageCheckColumn = function (config) {
     this.renderer = this.renderer.createDelegate(this);
 };
 
-Phlexible.siteroots.LanguageCheckColumn.prototype = {
+Phlexible.siteroots.grid.LanguageCheckColumn.prototype = {
     init: function (grid) {
         this.grid = grid;
         this.grid.on('render', function () {

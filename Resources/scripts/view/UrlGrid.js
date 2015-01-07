@@ -1,4 +1,7 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.UrlGrid');
+
+Ext.require('Phlexible.siteroots.model.Url');
+Ext.require('Phlexible.siteroots.grid.LanguageCheckColumn');
 
 Phlexible.siteroots.UrlGrid = Ext.extend(Ext.grid.EditorGridPanel, {
     title: Phlexible.siteroots.Strings.url_mappings,
@@ -66,7 +69,7 @@ Phlexible.siteroots.UrlGrid = Ext.extend(Ext.grid.EditorGridPanel, {
                 hidden: true,
                 dataIndex: 'id'
             },
-            this.cc2 = new Phlexible.siteroots.LanguageCheckColumn({
+            this.cc2 = new Phlexible.siteroots.grid.LanguageCheckColumn({
                 header: this.strings['default'],
                 dataIndex: 'default',
                 languageIndex: 'language',

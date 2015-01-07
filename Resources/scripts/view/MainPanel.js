@@ -1,4 +1,12 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.MainPanel');
+
+Ext.require('Phlexible.siteroots.SiterootGrid');
+Ext.require('Phlexible.siteroots.ContentChannelGrid');
+Ext.require('Phlexible.siteroots.NavigationGrid');
+Ext.require('Phlexible.siteroots.PropertyGrid');
+Ext.require('Phlexible.siteroots.SpecialTidGrid');
+Ext.require('Phlexible.siteroots.TitleForm');
+Ext.require('Phlexible.siteroots.UrlGrid');
 
 Phlexible.siteroots.MainPanel = Ext.extend(Ext.Panel, {
     strings: Phlexible.siteroots.Strings,
@@ -20,56 +28,50 @@ Phlexible.siteroots.MainPanel = Ext.extend(Ext.Panel, {
             'siterootChange'
         );
 
-        this.items = [
-            this.siterootGrid = new Phlexible.siteroots.SiterootGrid({
-                region: 'west',
-                width: 250,
-                minWidth: 200,
-                maxWidth: 350,
-                split: true,
-                listeners: {
-                    'siterootChange': {
-                        fn: this.onSiterootChange,
-                        scope: this
-                    },
-                    'siterootDataChange': {
-                        fn: this.onSiterootDataChange,
-                        scope: this
-                    }
-                }
-            }), {
-                region: 'center',
-                xtype: 'panel',
-                title: 'no_siteroot_loaded',
-                layout: 'accordion',
-                disabled: true,
-                tbar: [
-                    {
-                        text: this.strings.save_siteroot_data,
-                        iconCls: 'p-siteroot-save-icon',
-                        handler: this.onSaveData,
-                        scope: this
-                    }
-                ],
-                items: [
-                    {
-                        xtype: 'siteroots-urls'
-                    },
-                    {
-                        xtype: 'siteroots-titles'
-                    },
-                    {
-                        xtype: 'siteroots-properties'
-                    },
-                    {
-                        xtype: 'siteroots-specialtids'
-                    },
-                    {
-                        xtype: 'siteroots-navigations'
-                    }
-                ]
+        this.items = [{
+            xtype: 'siteroots-siteroots',
+            region: 'west',
+            width: 250,
+            minWidth: 200,
+            maxWidth: 350,
+            split: true,
+            listeners: {
+                siterootChange: this.onSiterootChange,
+                siterootDataChange: this.onSiterootDataChange,
+                scope: this
             }
-        ];
+        }, {
+            region: 'center',
+            xtype: 'panel',
+            title: 'no_siteroot_loaded',
+            layout: 'accordion',
+            disabled: true,
+            tbar: [
+                {
+                    text: this.strings.save_siteroot_data,
+                    iconCls: 'p-siteroot-save-icon',
+                    handler: this.onSaveData,
+                    scope: this
+                }
+            ],
+            items: [
+                {
+                    xtype: 'siteroots-urls'
+                },
+                {
+                    xtype: 'siteroots-titles'
+                },
+                {
+                    xtype: 'siteroots-properties'
+                },
+                {
+                    xtype: 'siteroots-specialtids'
+                },
+                {
+                    xtype: 'siteroots-navigations'
+                }
+            ]
+        }];
 
         Phlexible.siteroots.MainPanel.superclass.initComponent.call(this);
     },
@@ -160,8 +162,8 @@ Phlexible.siteroots.MainPanel = Ext.extend(Ext.Panel, {
             success: function (response) {
                 var data = Ext.decode(response.responseText);
                 if (data.success) {
-                    this.siterootGrid.selected = this.siterootGrid.getSelectionModel().getSelected().id;
-                    this.siterootGrid.store.reload();
+                    this.getSiterootGrid().selected = this.getSiterootGrid().getSelectionModel().getSelected().id;
+                    this.getSiterootGrid().store.reload();
 
 //                    this.onSiterootChange(this.siterootId, this.siterootTitle);
                 }

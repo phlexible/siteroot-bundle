@@ -1,4 +1,4 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.PropertyGrid');
 
 Phlexible.siteroots.PropertyGrid = Ext.extend(Ext.grid.PropertyGrid, {
     title: Phlexible.siteroots.Strings.properties,

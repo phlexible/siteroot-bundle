@@ -1,4 +1,5 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.TitleForm');
+Ext.provide('Phlexible.siteroots.CustomTitleTpl');
 
 Phlexible.siteroots.CustomTitleTpl = new Ext.XTemplate(
     '<tpl for=".">',

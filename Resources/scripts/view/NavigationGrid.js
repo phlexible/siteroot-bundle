@@ -1,4 +1,8 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.NavigationGrid');
+
+Ext.require('Phlexible.siteroots.model.Navigation');
+Ext.require('Phlexible.siteroots.NavigationFlagsWindow');
+Ext.require('Phlexible.siteroots.SiterootNavigationWindow');
 
 Phlexible.siteroots.NavigationGrid = Ext.extend(Ext.grid.EditorGridPanel, {
     title: Phlexible.siteroots.Strings.navigations,

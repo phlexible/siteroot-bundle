@@ -1,4 +1,6 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.SiterootGrid');
+
+Ext.require('Phlexible.siteroots.model.Siteroot');
 
 Phlexible.siteroots.SiterootGrid = Ext.extend(Ext.grid.GridPanel, {
     title: Phlexible.siteroots.Strings.siteroot,

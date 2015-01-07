@@ -1,6 +1,6 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.grid.SingleCheckColumn');
 
-Phlexible.siteroots.SingleCheckColumn = function (config) {
+Phlexible.siteroots.grid.SingleCheckColumn = function (config) {
     Ext.apply(this, config);
     if (!this.id) {
         this.id = Ext.id();
@@ -8,7 +8,7 @@ Phlexible.siteroots.SingleCheckColumn = function (config) {
     this.renderer = this.renderer.createDelegate(this);
 };
 
-Phlexible.siteroots.SingleCheckColumn.prototype = {
+Phlexible.siteroots.grid.SingleCheckColumn.prototype = {
     init: function (grid) {
         this.grid = grid;
         this.grid.on('render', function () {

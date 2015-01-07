@@ -1,4 +1,6 @@
-Ext.namespace('Phlexible.siteroots');
+Ext.provide('Phlexible.siteroots.SpecialTidGrid');
+
+Ext.require('Phlexible.siteroots.model.SpecialTid');
 
 Phlexible.siteroots.SpecialTidGrid = Ext.extend(Ext.grid.EditorGridPanel, {
     title: Phlexible.siteroots.Strings.special_tids,
